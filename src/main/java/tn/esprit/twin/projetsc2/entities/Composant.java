@@ -20,5 +20,43 @@ public class Composant {
     @OneToOne
     private DetailComposant detailComposant;
 
+    public Long getIdComposant() {
+        return idComposant;
+    }
 
+    public void setIdComposant(Long idComposant) {
+        this.idComposant = idComposant;
+    }
+
+    public String getNomComposant() {
+        return nomComposant;
+    }
+
+    public void setNomComposant(String nomComposant) {
+        this.nomComposant = nomComposant;
+    }
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
+    }
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
+
+    public DetailComposant getDetailComposant() {
+        return detailComposant;
+    }
+
+    public void setDetailComposant(DetailComposant detailComposant) {
+        this.detailComposant = detailComposant;
+    }
 }

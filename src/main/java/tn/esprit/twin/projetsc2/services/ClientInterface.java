@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface ClientInterface {
     List<Client> retrieveAllClients();
-    public Client retrieveClient(Long idClient);
+     Client retrieveClient(Long idClient);
     Client addClient(Client c);
-    Client updateClient(Client c);
+    Client updateClient(Client c,Long idClient);
     void removeClient(Long idClient);
     List<Client> addClients(List<Client> clients);
 

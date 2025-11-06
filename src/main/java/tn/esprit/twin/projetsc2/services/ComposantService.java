@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class ComposantService implements ComposantInterface {
-
+@Autowired
     private ComposantRepo composantRepo;
     @Override
     public List<Composant> retrieveAllComposants() {

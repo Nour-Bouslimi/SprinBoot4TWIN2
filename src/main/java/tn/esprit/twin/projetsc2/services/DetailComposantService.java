@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class DetailComposantService implements DetailComposantInterface {
-
+@Autowired
     private DetailComposantRepo detailComposantRepo;
     @Override
     public List<DetailComposant> retrieveAlldetails() {

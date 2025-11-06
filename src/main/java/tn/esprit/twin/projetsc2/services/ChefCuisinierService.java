@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class ChefCuisinierService implements ChefCuisinierInterface{
-
+@Autowired
     private ChefCuisinierRepo chefCuisinierRepo;
     @Override
     public List<ChefCuisinier> retrieveAllChefs() {
@@ -28,7 +28,8 @@ public class ChefCuisinierService implements ChefCuisinierInterface{
     }
 
     @Override
-    public ChefCuisinier updateChef(ChefCuisinier c) {
+    public ChefCuisinier updateChef(ChefCuisinier c, Long idChefCuisinier) {
+        c.setIdChefCuisinier(idChefCuisinier);
         return chefCuisinierRepo.save(c);
     }
 
@@ -38,7 +39,7 @@ public class ChefCuisinierService implements ChefCuisinierInterface{
     }
 
     @Override
-    public List<ChefCuisinier> addChef(List<ChefCuisinier> chefCuisiniers) {
+    public List<ChefCuisinier> addChefs(List<ChefCuisinier> chefCuisiniers) {
         return chefCuisinierRepo.saveAll(chefCuisiniers);
     }
 }

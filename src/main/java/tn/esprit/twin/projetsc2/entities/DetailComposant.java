@@ -12,4 +12,28 @@ public class DetailComposant {
     private float imc;
     @Enumerated(EnumType.STRING)
     private TypeComposant typeComposant;
+
+    public Long getIdDetailComposant() {
+        return idDetailComposant;
+    }
+
+    public void setIdDetailComposant(Long idDetailComposant) {
+        this.idDetailComposant = idDetailComposant;
+    }
+
+    public float getImc() {
+        return imc;
+    }
+
+    public void setImc(float imc) {
+        this.imc = imc;
+    }
+
+    public TypeComposant getTypeComposant() {
+        return typeComposant;
+    }
+
+    public void setTypeComposant(TypeComposant typeComposant) {
+        this.typeComposant = typeComposant;
+    }
 }

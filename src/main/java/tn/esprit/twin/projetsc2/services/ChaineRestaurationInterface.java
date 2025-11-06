@@ -10,7 +10,7 @@ public interface ChaineRestaurationInterface   {
     List<ChaineRestauration> retrieveAllChaineRestauration();
     public ChaineRestauration retrieveChaineRestauration(Long idChaineRestauration);
     ChaineRestauration addChaineRestauration(ChaineRestauration c);
-    ChaineRestauration updateChaineRestauration(ChaineRestauration c);
+    ChaineRestauration updateChaineRestauration(ChaineRestauration c,Long idChaineRestauration);
     void removeChaineRestauration(Long idChaineRestauration);
     List<ChaineRestauration> addChaineRestaurations(List<ChaineRestauration> ChaineRestaurations);
 }

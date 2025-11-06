@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class ClientService implements ClientInterface {
-
+@Autowired
     private ClientRepo clientRepo;
     @Override
     public List<Client> retrieveAllClients() {
@@ -30,7 +30,8 @@ public class ClientService implements ClientInterface {
     }
 
     @Override
-    public Client updateClient(Client c) {
+    public Client updateClient(Client c, Long idClient) {
+        c.setIdClient(idClient);
         return clientRepo.save(c);
     }
 

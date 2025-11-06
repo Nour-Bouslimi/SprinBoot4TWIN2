@@ -8,7 +8,7 @@ import java.util.List;
 public interface DetailComposantInterface {
 
     List<DetailComposant> retrieveAlldetails();
-    public DetailComposant retrieveDetail(Long idDetail);
+     DetailComposant retrieveDetail(Long idDetail);
     DetailComposant addDetail(DetailComposant d);
     DetailComposant updateDetail(DetailComposant d);
     void removeDetail(Long idDetail);

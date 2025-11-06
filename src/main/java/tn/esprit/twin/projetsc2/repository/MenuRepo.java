@@ -16,9 +16,9 @@ public interface MenuRepo extends JpaRepository<Menu, Long> {
 
     //liste des noms des Menu par type Menu Ordonne par prix total décroissant avec JpQL
     @Query("select m.libelleMenu from Menu m where m.typeMenu=:typeMenu order by m.prixTotal desc")
-    List<String>getMenuNamesByTypeMenuOrderByPrixTotalDesc(TypeMenu typeMenu);
+    List<String>findMenuNamesByTypeMenuOrderByPrixTotalDesc(TypeMenu typeMenu);
 
     //liste des menus contenant un type composant spécifique avec JpQL
     @Query("select m from Menu m join m.composants c where c.detailComposant.typeComposant=?1")
-    List<Menu>getMenusByTypeComposant(TypeComposant typeComposant);
+    List<Menu>findMenusByTypeComposant(TypeComposant typeComposant);
 }

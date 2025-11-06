@@ -17,7 +17,7 @@ import java.util.function.Function;
 @Service
 @AllArgsConstructor // Pour l'injection de dépendances via le constructeur fy 3oudh @Autowired 3la kol instance nasna3ha nesta3mel @AllArgsConstructor bch yinjecty 2ay instance nesta3melha
 public class ChaineRestaurationService  implements ChaineRestaurationInterface{
-    //@Autowired
+    @Autowired
     private ChaineRestaurationRepo chaineRestaurationRepo;
     @Override
     public List<ChaineRestauration> retrieveAllChaineRestauration() {
@@ -35,7 +35,8 @@ public class ChaineRestaurationService  implements ChaineRestaurationInterface{
     }
 
     @Override
-    public ChaineRestauration updateChaineRestauration(ChaineRestauration c) {
+    public ChaineRestauration updateChaineRestauration(ChaineRestauration c, Long idChaineRestauration) {
+        c.setIdChaineRestauration(idChaineRestauration);
         return chaineRestaurationRepo.save(c);
     }
 
