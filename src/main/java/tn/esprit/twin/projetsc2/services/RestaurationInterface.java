@@ -18,4 +18,7 @@ public interface RestaurationInterface {
     List<Restauration> addRestaurations(List<Restauration> restaurations);
     List<Restauration> getRestaurantsNbPlacesMaxGreaterThanAndChaineRestaurationDateCreationBefore(Long nbPlaces, LocalDate dateCreation);
     List<ChefCuisinier>getChefsCuisiniers1EtoileByRestauration(Long idRestauration, TypeChef typeChef);
+    Restauration affecterRestaurantAChaineRestauration(String nomRestaurant, Long idChaine );
+    Restauration ajoutRestaurantEtMenuAssocies(Restauration restaurant);
+
 }

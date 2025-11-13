@@ -73,4 +73,15 @@ public class ChefCuisinierC {
 
 
      }
+
+     /************* affectation ***************/
+
+     @GetMapping("/chefCuisinierAffecteRestauration/{idChefCuisinier}/{idMenu}")
+    public ChefCuisinier affecterChefCuisinierARestauration(@PathVariable Long idChefCuisinier, @PathVariable Long idMenu){
+         return chefCuisinierInterface.affecterChefCuisinierAMenu(idChefCuisinier, idMenu);
+    }
+    @GetMapping("/chefCuisinierDesaffecteRestauration/{idMenu}/{idChefCuisinier}")
+    public ChefCuisinier desaffecterChefCuisinierDuRestauration(@PathVariable Long idMenu, @PathVariable Long idChefCuisinier){
+         return chefCuisinierInterface.desaffecterChefCuisinierDuMenu(idMenu, idChefCuisinier);
+    }
 }

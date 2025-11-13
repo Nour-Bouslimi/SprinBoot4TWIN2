@@ -86,8 +86,17 @@ public class RestaurationC {
 
     }
 
+/*****Affectation *************/
 
+@GetMapping("/affecterRestaurantAChaineRestauration/{nom}/{idChaine}" )
+    public Restauration affecterRestaurantAChaineRestauration(@PathVariable("nom") String nom, @PathVariable("idChaine") Long idChaine ){
+        return restaurationInterface.affecterRestaurantAChaineRestauration(nom, idChaine);
+    }
 
+    @PostMapping("/ajoutRestaurantEtMenuAssocies")
+    public Restauration ajoutRestaurantEtMenuAssocies(@RequestBody Restauration restaurant){
+        return restaurationInterface.ajoutRestaurantEtMenuAssocies(restaurant);
+    }
 
 
 }

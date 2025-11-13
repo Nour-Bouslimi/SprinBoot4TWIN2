@@ -3,12 +3,15 @@ package tn.esprit.twin.projetsc2.services;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tn.esprit.twin.projetsc2.entities.Composant;
 import tn.esprit.twin.projetsc2.entities.Menu;
 import tn.esprit.twin.projetsc2.entities.TypeComposant;
 import tn.esprit.twin.projetsc2.entities.TypeMenu;
 import tn.esprit.twin.projetsc2.repository.MenuRepo;
 
 import java.util.List;
+import java.util.Set;
+
 @Service
 @AllArgsConstructor
 public class MenuService implements MenuInterface {
@@ -59,5 +62,23 @@ public class MenuService implements MenuInterface {
     @Override
     public List<Menu> getMenusByTypeComposant(TypeComposant typeComposant) {
         return menuRepo.findMenusByTypeComposant(typeComposant);
+    }
+
+    @Override
+    public Menu ajoutComposantsEtMiseAjourPrixMenu(Set<Composant> composants, Long idMenu) {
+        Menu menu = menuRepo.findById(idMenu).orElse(null);
+        if(menu !=null){
+            menu.getComposants().addAll((composants));
+            float prixTotal = 0;
+            for(Composant c: menu.getComposants()){
+                prixTotal +=c.getPrix();
+            }
+            menu.setPrixTotal(prixTotal);
+            if(menu.getPrixTotal()<=20){
+                return menuRepo.save(menu);
+            }
+
+        }
+        return null;
     }
 }

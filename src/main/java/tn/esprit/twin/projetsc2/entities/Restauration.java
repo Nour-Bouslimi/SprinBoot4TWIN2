@@ -19,7 +19,7 @@ public class Restauration {
     private ChaineRestauration chaineRestauration;
 
     //relation with menu
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List <Menu> menus;
 
     public Long getIdRestauration() {

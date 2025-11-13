@@ -18,4 +18,6 @@ public interface RestaurationRepo extends JpaRepository<Restauration, Long> {
     @Query("select  m from Restauration r join r.menus m join m.chefCuisiniers c where  r.idRestauration=?1 and c.typeChef=?2")
     List<ChefCuisinier>getChefsCuisiniers1EtoileByRestauration(Long idRestauration, TypeChef typeChef);
 
+    Restauration findByNom(String nomRestaurant);
+
 }

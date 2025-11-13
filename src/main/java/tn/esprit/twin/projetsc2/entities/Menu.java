@@ -16,7 +16,7 @@ public class Menu {
     private TypeMenu typeMenu;
     private Float prixTotal;
     // Relation with commande
-    @OneToMany(mappedBy = "menu" ,  fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "menu" ,cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
     private List<Commande> commandes;
     // Relation with composant
     @OneToMany(mappedBy = "menu" , fetch = FetchType.LAZY)

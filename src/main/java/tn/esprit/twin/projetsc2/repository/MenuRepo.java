@@ -21,4 +21,5 @@ public interface MenuRepo extends JpaRepository<Menu, Long> {
     //liste des menus contenant un type composant spécifique avec JpQL
     @Query("select m from Menu m join m.composants c where c.detailComposant.typeComposant=?1")
     List<Menu>findMenusByTypeComposant(TypeComposant typeComposant);
+    Menu findByLibelleMenu(String libelleMenu);
 }

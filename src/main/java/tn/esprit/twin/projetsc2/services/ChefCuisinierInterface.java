@@ -13,4 +13,7 @@ public interface ChefCuisinierInterface {
     ChefCuisinier updateChef(ChefCuisinier c,Long idChefCuisinier);
     void removeChef(Long idChefCuisinier);
     List<ChefCuisinier> addChefs(List<ChefCuisinier> chefCuisiniers);
+    ChefCuisinier affecterChefCuisinierAMenu(Long idChefCuisinier, Long idMenu);
+    ChefCuisinier desaffecterChefCuisinierDuMenu(Long idMenu, Long
+            idChefCuisinier);
 }

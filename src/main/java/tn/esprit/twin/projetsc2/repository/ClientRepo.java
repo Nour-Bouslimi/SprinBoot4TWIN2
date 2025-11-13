@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 public interface ClientRepo extends JpaRepository<Client, Long> {
 
+    Client findByIdentifiant(String identifiant);
 
 
 
