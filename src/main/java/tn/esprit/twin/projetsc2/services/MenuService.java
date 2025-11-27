@@ -1,7 +1,9 @@
 package tn.esprit.twin.projetsc2.services;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import tn.esprit.twin.projetsc2.entities.Composant;
 import tn.esprit.twin.projetsc2.entities.Menu;
@@ -14,6 +16,7 @@ import java.util.Set;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class MenuService implements MenuInterface {
 
     @Autowired
@@ -81,4 +84,5 @@ public class MenuService implements MenuInterface {
         }
         return null;
     }
+
 }

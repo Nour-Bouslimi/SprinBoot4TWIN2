@@ -24,6 +24,7 @@ public class Commande {
     private Long note;
     // Relation avec Client
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "idClient")
     private Client client;
     // Relation avec Menu

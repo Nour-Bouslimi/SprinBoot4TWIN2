@@ -1,10 +1,13 @@
 package tn.esprit.twin.projetsc2.services;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import tn.esprit.twin.projetsc2.entities.Client;
 import tn.esprit.twin.projetsc2.entities.Commande;
+import tn.esprit.twin.projetsc2.entities.Composant;
 import tn.esprit.twin.projetsc2.entities.Menu;
 import tn.esprit.twin.projetsc2.repository.ClientRepo;
 import tn.esprit.twin.projetsc2.repository.CommandeRepo;
@@ -14,6 +17,7 @@ import java.time.LocalDate;
 import java.util.List;
 @Service
 @AllArgsConstructor
+@Slf4j
 public class CommandeService implements CommandeInterface {
 
     private CommandeRepo commandeRepo;
@@ -81,4 +85,33 @@ public class CommandeService implements CommandeInterface {
             commandeRepo.save(commande);
         }
     }
+
+    @Override
+    @Scheduled(cron = "*/30 * * * * ?")
+    public void findCurrentYearCommandesOrderByNote() {
+       LocalDate startDate= LocalDate.of(LocalDate.now().getYear(),1,1);
+         LocalDate endDate= LocalDate.of(LocalDate.now().getYear(),12,31);
+         List<Commande> commandes=commandeRepo.findByDateCommandeBetweenOrderByNoteDesc(startDate,endDate);
+         for(Commande c:commandes){
+             log.info("La commande faite le " + c.getDateCommande() + "d'un montant global de " + c.getTotalCommande() + "a une note de " + c.getNote());
+         }
+
+    }
+
+    @Override
+    @Scheduled(cron = "*/15 * * * * ?") // Exécute la tâche tous les jours à minuit
+    public void menuPlusCommande() {
+
+        List<Object[]> results = commandeRepo.menuPlusCommande();
+        if (!results.isEmpty()) {
+            Object[] topMenu = results.get(0);
+            String libelleMenu = (String) topMenu[0];
+            Long count = (Long) topMenu[1];
+            log.info("Le menu le plus commandé dans votre restaurant est  : " + libelleMenu + " commandé " + count + " fois.");
+        } else {
+            log.info("Aucune commande trouvée.");
+        }
+
+    }
+
 }

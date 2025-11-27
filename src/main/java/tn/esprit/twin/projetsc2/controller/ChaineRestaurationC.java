@@ -2,19 +2,19 @@ package tn.esprit.twin.projetsc2.controller;
 
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.twin.projetsc2.entities.ChaineRestauration;
 import tn.esprit.twin.projetsc2.services.ChaineRestaurationInterface;
 
-import java.time.LocalDate;
+
 import java.util.List;
 
 @RestController
 @AllArgsConstructor
 @RequestMapping("/chaineRestauration")
 public class ChaineRestaurationC {
-     @Autowired
+
      ChaineRestaurationInterface chaineRestaurationInterface;
 
      @PostMapping("/addChaineRestauration")

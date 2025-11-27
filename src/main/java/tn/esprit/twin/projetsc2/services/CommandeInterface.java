@@ -15,6 +15,11 @@ public interface CommandeInterface {
     List<Commande> getByClientIdClient(Long idClient);
     List<Commande> getByClientIdClientAndDateCommandeBetween(Long idClient, LocalDate startDate, LocalDate endDate);
     List<Commande>getByDateCommandeBetweenOrderByNoteDesc(LocalDate startDate, LocalDate endDate);
-    void ajouterCommandeEtAffecterAClientEtMenu(Commande commande, String identifiant,
-                                                String libelleMenu);
+    void ajouterCommandeEtAffecterAClientEtMenu(Commande commande, String identifiant, String libelleMenu);
+
+    //scheduler
+    void findCurrentYearCommandesOrderByNote();
+    //scheduler
+    void menuPlusCommande();
+
 }

@@ -1,5 +1,6 @@
 package tn.esprit.twin.projetsc2.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,6 +20,7 @@ public class ChaineRestauration {
     private LocalDate dateCreation;
 
     @OneToMany(mappedBy = "chaineRestauration" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     List<Restauration> restaurations;
 
 

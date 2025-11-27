@@ -11,4 +11,7 @@ public interface ComposantInterface {
     Composant updateComposant(Composant c);
     void removeComposant(Long idComposant);
     List<Composant> addComposant(List<Composant> composants);
+//scheduler
+    void addComposantPrice();
+
 }

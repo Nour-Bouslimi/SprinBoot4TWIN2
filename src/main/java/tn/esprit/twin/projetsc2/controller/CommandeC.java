@@ -20,7 +20,7 @@ public class CommandeC {
     CommandeInterface commandeInterface;
 @Operation(summary = "Ajouter une nouvelle commande", description = "Cette opération permet d'ajouter une nouvelle commande à la base de données.")
     @PostMapping("/addCommande")
-    public Commande addCommande(Commande commande){
+    public Commande addCommande(@RequestBody Commande commande){
         return commandeInterface.addCommande(commande);
     }
     @Operation(summary = "ajouter une liste des commandes " , description = "cette operation permet d'ajouter une liste des commandes a la base de données")
@@ -35,7 +35,7 @@ public class CommandeC {
     }
 @Operation(summary = "récupérer une commande par son id")
     @GetMapping("/getCommandeById/{idCommande}")
-    public Commande getCommandeById(Long idCommande){
+    public Commande getCommandeById(@PathVariable Long idCommande){
         return commandeInterface.retrieveCommande(idCommande);
     }
 

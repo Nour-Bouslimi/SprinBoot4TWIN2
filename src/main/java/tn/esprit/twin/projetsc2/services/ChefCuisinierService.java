@@ -51,7 +51,8 @@ public class ChefCuisinierService implements ChefCuisinierInterface{
         ChefCuisinier chefCuisinier=chefCuisinierRepo.findById(idChefCuisinier).orElse(null);
         Menu menu =menuRepo.findById(idMenu).orElse(null);
         if(chefCuisinier!=null && menu!=null){
-            chefCuisinier.getMenus().add(menu);
+            //affecter le chef cuisinier au menu
+            menu.getChefCuisiniers().add(chefCuisinier);
             return chefCuisinierRepo.save(chefCuisinier);
         }
     return null;
@@ -62,8 +63,10 @@ public class ChefCuisinierService implements ChefCuisinierInterface{
         ChefCuisinier chefCuisinier=chefCuisinierRepo.findById(idChefCuisinier).orElse(null);
         Menu menu =menuRepo.findById(idMenu).orElse(null);
         if(chefCuisinier!=null && menu!=null){
-            chefCuisinier.getMenus().remove(menu);
+            //désaffecter le chef cuisinier du menu
+            menu.getChefCuisiniers().remove(chefCuisinier);
             return chefCuisinierRepo.save(chefCuisinier);
+
         }
        return null;
     }
