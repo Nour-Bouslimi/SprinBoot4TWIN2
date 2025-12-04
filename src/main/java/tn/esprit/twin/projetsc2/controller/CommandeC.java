@@ -6,7 +6,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.twin.projetsc2.entities.Commande;
+import tn.esprit.twin.projetsc2.services.CommandeDTO;
 import tn.esprit.twin.projetsc2.services.CommandeInterface;
+import tn.esprit.twin.projetsc2.services.CommandeService;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -16,8 +18,9 @@ import java.util.List;
 @RequestMapping("/commande")
 @Tag(name = "Gestion des Commandes", description = "Opérations liées aux commandes")
 public class CommandeC {
-    @Autowired
+
     CommandeInterface commandeInterface;
+    CommandeService commandeService;
 @Operation(summary = "Ajouter une nouvelle commande", description = "Cette opération permet d'ajouter une nouvelle commande à la base de données.")
     @PostMapping("/addCommande")
     public Commande addCommande(@RequestBody Commande commande){
@@ -84,6 +87,11 @@ public class CommandeC {
 @PostMapping("/ajouterCommandeEtAffecterAClientEtMenu/{identifiant}/{libelleMenu}")
     public void ajouterCommandeEtAffecterAClientEtMenu(@RequestBody Commande commande, @PathVariable String identifiant, @PathVariable String libelleMenu){
         commandeInterface.ajouterCommandeEtAffecterAClientEtMenu(commande, identifiant, libelleMenu);
+    }
+
+    @GetMapping("/getCommandesByClientAndMenu/{identifiant}/{libelleMenu}")
+    public List<CommandeDTO> getCommandesByClientAndMenu(@PathVariable String identifiant, @PathVariable String libelleMenu){
+        return commandeService.listeCommandesParClientEtMenu(identifiant, libelleMenu);
     }
 
 

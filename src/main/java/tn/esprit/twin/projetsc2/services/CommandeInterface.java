@@ -21,5 +21,7 @@ public interface CommandeInterface {
     void findCurrentYearCommandesOrderByNote();
     //scheduler
     void menuPlusCommande();
+    //dto
+    List<CommandeDTO> listeCommandesParClientEtMenu(String identifiant, String libelleMenu);
 
 }

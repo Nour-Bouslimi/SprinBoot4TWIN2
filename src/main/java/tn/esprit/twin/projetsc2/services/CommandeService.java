@@ -23,6 +23,7 @@ public class CommandeService implements CommandeInterface {
     private CommandeRepo commandeRepo;
     private ClientRepo clientRepo;
     private MenuRepo menuRepo;
+    private CommandeMapper commandeMapper;
     @Override
     public List<Commande> retrieveAllCommandes() {
         return commandeRepo.findAll();
@@ -112,6 +113,13 @@ public class CommandeService implements CommandeInterface {
             log.info("Aucune commande trouvée.");
         }
 
+    }
+
+    // liste des commandes correspondant à un client donné et un menu donné avec dto
+    @Override
+    public List<CommandeDTO> listeCommandesParClientEtMenu(String identifiant, String libelleMenu) {
+        List<Commande> commandes= commandeRepo.findByClientIdentifiantAndMenuLibelleMenu(identifiant,libelleMenu);
+        return commandeMapper.toDtoList(commandes);
     }
 
 }
